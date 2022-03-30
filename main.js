@@ -16,7 +16,7 @@ const limparCampos = () => {
 }
 
 // cep is valid? function
-const cepValido = (cep) => cep.length == 8 && /^[0-9]+$/.test(cep);
+const cepIsValid = (cep) => cep.length == 8 && /^[0-9]+$/.test(cep);
 
 function hideSpinner() {
     document.getElementById('spinner')
@@ -34,14 +34,12 @@ const pesquisarCep = async() => {
 	const url = `http://viacep.com.br/ws/${cep}/json/`;
 	showSpinner()
 	
-	
-	if(cepValido(cep)){
+	if(cepIsValid(cep)){
 		// fetching data from API
 		const dados = await fetch(url);
 		const endereco = await dados.json()
 		
 		if(endereco.hasOwnProperty('erro')){
-			console.log(endereco)
 			document.getElementById('endereco').value = 'erro! CEP não encontrado!'
 			limparCampos()
 			hideSpinner();
@@ -54,5 +52,4 @@ const pesquisarCep = async() => {
 		limparCampos()
 		hideSpinner();
 	}
-	
 }
