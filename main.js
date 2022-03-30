@@ -18,12 +18,22 @@ const limparCampos = () => {
 // cep is valid? function
 const cepValido = (cep) => cep.length == 8 && /^[0-9]+$/.test(cep);
 
+function hideSpinner() {
+    document.getElementById('spinner')
+            .style.display = 'none';
+}
+
+function showSpinner() {
+    document.getElementById('spinner')
+            .style.display = 'block';
+}
 
 // search cep function
 const pesquisarCep = async() => {
 	const cep = document.getElementById('cep').value;
 	const url = `http://viacep.com.br/ws/${cep}/json/`;
-	// const loader = document.getElementById('loading')
+	showSpinner()
+	
 	
 	if(cepValido(cep)){
 		// fetching data from API
@@ -34,12 +44,15 @@ const pesquisarCep = async() => {
 			console.log(endereco)
 			document.getElementById('endereco').value = 'erro! CEP não encontrado!'
 			limparCampos()
+			hideSpinner();
 		}else {
-				preencherForm(endereco);
+			preencherForm(endereco);
+			hideSpinner();
 		}
 	}else{
 		document.getElementById('endereco').value = 'erro! CEP inválido'
 		limparCampos()
+		hideSpinner();
 	}
 	
 }
