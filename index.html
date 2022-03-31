@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,15 +15,15 @@
 
 		<!-- CEP search bar -->
 		<section name="CEP search bar">
-			<h1 class="title text-center">Consultas de CEP</h1>
-			<div class="row">
-				<div class="col-12">
-					<div class="inputbox">
+			<h1 class="title text-center">Consultas de CEP<img class="img-responsive" src="./img/lupa.png"></h1>
+			<div class="row mb-3">
+				<div class="col-12 col-md-6">
+					<div class="inputbox p-1">
 						<label for="cep">CEP</label>
 						<input type="text" id="cep" required>
 					</div>
 				</div>
-				<div class="col-6 my-3">
+				<div class="col-6 col-md-6 my-3 my-md-0">
 					<button class="btn btn-primary" onclick="pesquisarCep()">Consultar CEP</button>
 					<!-- spinner -->
 					<div  id="spinner" class="spinner-border mx-3 mt-3" role="status">
@@ -50,7 +50,7 @@
 							<label for="cidade" class="form-label">Cidade</label>
 							<input class="form-control" type="text" disabled id ="cidade">
 						</div>
-						<div class=" col-3 col-sm-2">
+						<div class=" col-3 col-sm-2 mb-3">
 							<label for="uf" class="form-label">UF</label>
 							<input class="form-control" type="text" disabled id ="estado">
 						</div>
